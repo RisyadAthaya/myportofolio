@@ -1,5 +1,5 @@
-Nama : Risyad Athaya Muhammad
+Nama: Risyad Athaya Muhammad
 
-NPM : 2506595890
+NPM: 2506595890
 
-Kelas : PBP F
+Kelas: PBP F
