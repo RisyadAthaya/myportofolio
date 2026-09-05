@@ -4,6 +4,30 @@ NPM: 2506595890
 
 Kelas: PBP F
 
+## How to Run
+1. **Clone this repository** from terminal using the following command
+   ```bash
+   $ git clone https://github.com/RisyadAthaya/myportofolio.git
+   ```
+2. **Create and activate the virtual environment** using the following command in the project root directory
+   ```bash
+   $ python -m venv venv
+   ```
+   then activate it
+   ```bash
+   $ venv\Scripts\activate
+   ```
+3. **Install the dependencies** on requirements.txt using the following command
+   ```bash
+   $ pip install -r requirements.txt
+   ```
+4. **Run the server** using the following command
+   ```bash
+   $ python manage.py runserver
+   ```
+   then open your browser and go to http://127.0.0.1:8000/ to view the website.
+
+## Reflective Questions
 ### Tugas 1
 1. Pada Tutorial dan Tugas 1, Anda diberi kebebasan untuk menentukan tampilan dari website portofolio Anda. Saat Anda
    merancang struktur HTML yang digunakan, apakah Anda menggunakan elemen semantik HTML5 seperti `<section>`, `<article>`,
