@@ -1,10 +1,19 @@
+<div align="center">
+<h1 align="center">📜 My Portofolio</h1>
+<p align="center">Portofolio Website for PBP</p>
+
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white&logoSize=auto)
+
 Nama: Risyad Athaya Muhammad
 
 NPM: 2506595890
 
 Kelas: PBP F
+</div>
 
-## How to Run
+## ⚙️ How to Run
 1. **Clone this repository** from terminal using the following command
    ```bash
    $ git clone https://github.com/RisyadAthaya/myportofolio.git
@@ -27,7 +36,7 @@ Kelas: PBP F
    ```
    then open your browser and go to http://127.0.0.1:8000/ to view the website.
 
-## Reflective Questions
+## ❓ Reflective Questions
 ### Tugas 1
 1. Pada Tutorial dan Tugas 1, Anda diberi kebebasan untuk menentukan tampilan dari website portofolio Anda. Saat Anda
    merancang struktur HTML yang digunakan, apakah Anda menggunakan elemen semantik HTML5 seperti `<section>`, `<article>`,
@@ -62,7 +71,7 @@ item lebih banyak atau elemen dari masing-masing item semakin kompleks (seperti 
 Sederhana saja, pada iterasi selanjutnya, saya ingin membuat sebuah file JavaScript untuk memasukkan elemen dari
 item-item tersebut dengan lebih mudah.
 
-## AI Disclosure
+## 🤖 AI Disclosure
 Tools AI yang digunakan: Gemini.
 
 Apa saja yang saya lakukan dengan AI pada codebase ini?
