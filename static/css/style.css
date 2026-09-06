@@ -294,6 +294,10 @@ h2 {
         padding-inline: 4rem;
     }
 
+    .site-header nav {
+        gap: 1rem;
+    }
+
     section {
         padding-block: 1.5rem;
         padding-inline: 2rem;
