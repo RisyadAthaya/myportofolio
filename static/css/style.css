@@ -5,12 +5,12 @@
 }
 
 :root {
-    --ink: #1c1917;
-    --paper: #faf6f0;
+    --ink: #faf6f0;
+    --paper: #07090f;
     --accent: #64906C;
-    --accent-dark: #45674b;
+    --accent-light: #80b189;
     --line: #e3d9c9;
-    --text-muted: #6b6459;
+    --text-muted: #8a8a8e;
     --radius: 4px;
 }
 
@@ -108,7 +108,7 @@ h2 {
     font-size: 0.85rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent-dark);
+    color: var(--accent-light);
     font-weight: 700;
     margin-bottom: 0.75rem;
 }
