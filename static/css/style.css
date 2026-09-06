@@ -11,7 +11,8 @@
     --accent-light: #80b189;
     --line: #e3d9c9;
     --text-muted: #8a8a8e;
-    --radius: 4px;
+    --radius-square: 4px;
+    --radius-rounded: 20px;
 }
 
 html {
@@ -33,7 +34,7 @@ main {
 }
 
 section {
-    padding-block: 4.5rem;
+    padding-block: 3rem;
     padding-inline: 8rem;
 }
 
@@ -155,7 +156,7 @@ h2 {
     text-decoration: none;
     color: var(--paper);
     background-color: var(--ink);
-    border-radius: var(--radius);
+    border-radius: var(--radius-square);
     padding: 0.5rem 1.1rem;
     transition: background-color 0.2s ease;
 }
@@ -177,7 +178,7 @@ h2 {
     width: 100%;
     height: 100%;
     background-color: var(--accent);
-    border-radius: var(--radius);
+    border-radius: var(--radius-square);
     z-index: 0;
 }
 
@@ -188,7 +189,7 @@ h2 {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: var(--radius);
+    border-radius: var(--radius-square);
     border: 3px solid var(--ink);
 }
 
@@ -244,6 +245,36 @@ h2 {
     flex-direction: column;
     text-align: right;
     color: var(--text-muted);
+}
+
+/* Stack the title and content vertically and aligned them in the center */
+#tech-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 8rem;
+}
+
+.tech-stack-content-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    width: 100%;
+    border: 3px solid var(--line);
+    border-radius: var(--radius-rounded);
+}
+
+.tech-stack-logo {
+    background-color: var(--ink);
+    border-radius: var(--radius-rounded);
+    padding: 0.5rem;
+    max-width: 100px;
+    max-height: 100px;
+    height: auto;
+    width: auto;
 }
 
 .site-footer {
