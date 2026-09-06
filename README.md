@@ -61,3 +61,17 @@ belum terlalu banyak hal yang ingin saya masukkan, tetapi hal ini bisa cukup men
 item lebih banyak atau elemen dari masing-masing item semakin kompleks (seperti menambahkan gambar, link, dan lainnya).
 Sederhana saja, pada iterasi selanjutnya, saya ingin membuat sebuah file JavaScript untuk memasukkan elemen dari
 item-item tersebut dengan lebih mudah.
+
+## AI Disclosure
+Tools AI yang digunakan: Gemini.
+
+Apa saja yang saya lakukan dengan AI pada codebase ini?
+- Mencari arti dari beberapa semantic tags di HTML
+- "Translate" penulisan classes di Tailwind CSS (karena terbiasa memakai Tailwind) ke Vanilla CSS
+- Mencari penataan README.md yang baik
+- Menanyakan cara menulis commit messages yang sesuai dengan conventional commits
+
+Saya menyadari bahwa AI masih memiliki banyak kekurangan sehingga saya selalu melakukan crosscheck
+setiap kali mendapatkan jawaban dari chatbot. Selain itu, saya tidak menggunakan AI Coding Assistant
+untuk memudahkan saya mengingat style-style dan juga elemen-elemen yang saya buat secara manual di HTML
+dan juga CSS.
