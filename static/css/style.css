@@ -99,6 +99,7 @@ h2 {
 
 .hero-identity {
     grid-area: identity;
+    align-self: end;
 }
 
 .hero-details {
