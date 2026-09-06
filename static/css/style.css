@@ -256,6 +256,7 @@ h2 {
     padding-bottom: 8rem;
 }
 
+/* Apply flex row (wrappable) to the content so it's responsive to mobile as well */
 .tech-stack-content-container {
     display: flex;
     flex-direction: row;
@@ -268,6 +269,7 @@ h2 {
     border-radius: var(--radius-rounded);
 }
 
+/* Style the logo */
 .tech-stack-logo {
     background-color: var(--ink);
     border-radius: var(--radius-rounded);
