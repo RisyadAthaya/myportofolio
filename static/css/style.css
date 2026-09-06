@@ -192,12 +192,14 @@ h2 {
     border: 3px solid var(--ink);
 }
 
+/* Stack the title and content vertically and aligned them in the center */
 #experiences {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Stack the experiences vertically */
 .experiences-list {
     display: flex;
     flex-direction: column;
@@ -205,6 +207,8 @@ h2 {
     width: 100%;
 }
 
+/* Each item has the organization title on the left with the right being the position and date.
+   Also, give bottom border to each item except the last. */
 .experiences-item {
     display: flex;
     flex-direction: row;
@@ -221,6 +225,7 @@ h2 {
     border-bottom: none;
 }
 
+/* Make the experience title bigger */
 .experiences-item-title {
     font-size: clamp(3rem, 7vw, 4rem);
     font-weight: 500;
@@ -228,10 +233,12 @@ h2 {
     text-decoration: none;
 }
 
+/* Change the color of the experience title when being hovered */
 .experiences-item-title:hover {
     color: var(--accent);
 }
 
+/* Stack the desc vertically and aligned the text to the right */
 .experiences-item-desc {
     display: flex;
     flex-direction: column;
@@ -247,6 +254,7 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    /* Adjust padding for main section (hero) so that the spacing is comfortable for mobile users */
     main {
         padding-top: 2rem;
         padding-inline: 4rem;
@@ -278,10 +286,12 @@ h2 {
         justify-content: flex-start;
     }
 
+    /* Make the experiences items shown vertically */
     .experiences-item {
         flex-direction: column;
     }
 
+    /* Make the experiences desc to be aligned center */
     .experiences-item-desc {
         text-align: center;
     }
