@@ -65,6 +65,10 @@ h2 {
     padding: 1.25rem 1.5rem;
 }
 
+.header-text:hover {
+    color: var(--accent);
+}
+
 .brand {
     font-size: 1.3rem;
     font-weight: 700;
