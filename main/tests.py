@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from main.models import Experience
+from main.models import Experience, Projects
 
 
 class MainTest(TestCase):
@@ -12,14 +12,21 @@ class MainTest(TestCase):
             description="Membantu mahasiswa memahami pengembangan web.",
             category="part-time",
         )
+        self.project = Projects.objects.create(
+            title="Portfolio",
+            description="A personal portfolio website built with Next.js, Tailwind CSS, and GSAP.",
+            web_link="https://athaya-portfolio.vercel.app/",
+            image_path="/static/img/project-portfolio.png",
+
+        )
 
     def test_main_url_is_accessible(self):
         response = self.client.get(reverse("main:show_main"))
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "index.html")
-        self.assertNotContains(response, self.experience.title)
         self.assertContains(response, f'href="{reverse("main:show_experience")}"')
+        self.assertContains(response, f'href="{reverse("main:show_projects")}"')
 
     def test_nonexistent_page_returns_404(self):
         response = self.client.get("/halaman-yang-tidak-ada/")
@@ -46,7 +53,7 @@ class MainTest(TestCase):
         Experience.objects.all().delete()
         response = self.client.get(reverse("main:show_experience"))
 
-        self.assertContains(response, "Belum ada pengalaman yang ditambahkan.")
+        self.assertContains(response, "Work in progress. Please wait for it!")
 
     def test_completed_experience(self):
         self.experience.ended_at = timezone.now()
@@ -56,3 +63,23 @@ class MainTest(TestCase):
         self.assertFalse(self.experience.is_ongoing)
         self.assertContains(response, "Selesai")
         self.assertNotContains(response, "Sedang berlangsung")
+
+    def test_projects_model(self):
+        self.assertEqual(str(self.project), "Portfolio")
+
+    def test_projects_page(self):
+        response = self.client.get(reverse("main:show_projects"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "projects.html")
+        self.assertContains(response, self.project.title)
+        self.assertContains(response, self.project.description)
+        self.assertContains(response, f'href="{self.project.web_link}"')
+        self.assertContains(response, f'src="{self.project.image_path}"')
+        self.assertContains(response, f'href="{reverse("main:show_main")}"')
+
+    def test_empty_projects_page(self):
+        Projects.objects.all().delete()
+        response = self.client.get(reverse("main:show_projects"))
+
+        self.assertContains(response, "Work in progress. Please wait for it!")
