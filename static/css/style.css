@@ -7,8 +7,8 @@
 :root {
     --ink: #faf6f0;
     --paper: #07090f;
-    --accent: #64906C;
-    --accent-light: #80b189;
+    --accent: #17c696;
+    --accent-light: #1fe0ab;
     --line: #e3d9c9;
     --text-muted: #b8b8bf;
     --radius-square: 4px;
@@ -468,7 +468,7 @@ h2 {
     /* Adjust padding for main section (hero) so that the spacing is comfortable for mobile users */
     .hero {
         padding-top: 8rem;
-        padding-inline: 4rem;
+        padding-inline: 0;
     }
 
     .hero-grid {
