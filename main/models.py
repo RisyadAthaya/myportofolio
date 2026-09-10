@@ -35,3 +35,10 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.title
+
+class TechStack(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    image_path = models.FilePathField(unique=True)
+
+    def __str__(self):
+        return self.name
