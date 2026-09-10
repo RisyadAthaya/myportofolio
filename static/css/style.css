@@ -223,14 +223,14 @@ h2 {
 }
 
 /* Stack the title and content vertically and aligned them in the center */
-#experiences {
+#experience {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /* Stack the experiences vertically */
-.experiences-list {
+.experience-list {
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -239,7 +239,7 @@ h2 {
 
 /* Each item has the organization title on the left with the right being the position and date.
    Also, give bottom border to each item except the last. */
-.experiences-item {
+.experience-item {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -251,12 +251,12 @@ h2 {
     border-bottom-style: solid;
 }
 
-.experiences-item:last-child {
+.experience-item:last-child {
     border-bottom: none;
 }
 
 /* Make the experience title bigger */
-.experiences-item-title {
+.experience-item-title {
     font-size: clamp(3rem, 7vw, 4rem);
     font-weight: 500;
     color: var(--ink);
@@ -264,12 +264,12 @@ h2 {
 }
 
 /* Change the color of the experience title when being hovered */
-.experiences-item-title:hover {
+.experience-item-title:hover {
     color: var(--accent);
 }
 
 /* Stack the desc vertically and aligned the text to the right */
-.experiences-item-desc {
+.experience-item-desc {
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -315,8 +315,11 @@ h2 {
     border-top: 1px solid var(--line);
 }
 
-.experience-section {
-    padding: 4rem 0;
+
+/* Experience Page */
+.experience-page-section {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
     border-top: 1px solid var(--line);
 }
 
@@ -328,42 +331,42 @@ h2 {
     text-transform: uppercase;
 }
 
-.experience-section h1 {
+.experience-page-section h1 {
     margin: 0.4rem 0 1.5rem;
     font-size: 2rem;
 }
 
-.experience-grid {
+.experience-page-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
 }
 
-.experience-card {
+.experience-page-card {
     padding: 1.25rem;
     background-color: var(--paper);
     border: 1px solid var(--line);
     border-radius: var(--radius-square);
 }
 
-.experience-category {
+.experience-page-category {
     color: var(--accent-light);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.experience-card h2 {
+.experience-page-card h2 {
     margin: 0.5rem 0;
     font-size: 1.25rem;
 }
 
-.experience-description,
+.experience-page-description,
 .empty-state {
     color: var(--text-muted);
 }
 
-.experience-status {
+.experience-page-status {
     margin-top: 1rem;
     font-size: 0.85rem;
     font-weight: 600;
@@ -407,12 +410,12 @@ h2 {
     }
 
     /* Make the experiences items shown vertically */
-    .experiences-item {
+    .experience-item {
         flex-direction: column;
     }
 
     /* Make the experiences desc to be aligned center */
-    .experiences-item-desc {
+    .experience-item-desc {
         text-align: center;
     }
 }
