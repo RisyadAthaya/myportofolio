@@ -21,3 +21,9 @@ def show_experience(request):
         "experience_list": Experience.objects.all(),
     }
     return render(request, "experience.html", context)
+
+def show_projects(request):
+    context = {
+        "nickname": "Athaya",
+    }
+    return render(request, "projects.html", context)
