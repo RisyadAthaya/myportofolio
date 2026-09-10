@@ -167,7 +167,6 @@ h2 {
     background-color: var(--ink);
     border-radius: var(--radius-square);
     padding: 0.5rem 1.1rem;
-    transition: background-color 0.2s ease;
 }
 
 .social-link:hover {
@@ -306,6 +305,46 @@ h2 {
     max-height: 100px;
     height: auto;
     width: auto;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.projects-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    border: 3px solid var(--line);
+    border-radius: var(--radius-rounded);
+}
+
+.projects-image {
+    width: 100%;
+    border-radius: var(--radius-rounded);
+}
+
+.projects-title {
+    font-family: "Space Grotesk", -apple-system, sans-serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.projects-title:hover {
+     color: var(--accent);
 }
 
 .site-footer {
