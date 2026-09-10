@@ -100,6 +100,24 @@ h2 {
     padding-bottom: 5rem;
 }
 
+.hero-loop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    padding-block: 0;
+    padding-inline: 0;
+}
+
+.hero-loop-video {
+    height: 100svh;
+    width: 100%;
+    object-fit: cover;
+}
+
 .hero-grid {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
