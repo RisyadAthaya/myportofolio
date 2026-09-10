@@ -11,25 +11,52 @@
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <!-- Untuk header dan footer menggunakan nickname for design purpose -->
-    <a href="{% url 'main:show_main' %}" class="brand">{{ nickname }}</a>
-    <nav>
-      <a class="header-text" href="{% url 'main:show_main' %}">Profile</a>
-      <a class="header-text" href="{% url 'main:show_experience' %}">Experience</a>
-      <a class="header-text" href="{% url 'main:show_projects' %}">Projects</a>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container">
+      <!-- Untuk header dan footer menggunakan nickname for design purpose -->
+      <a href="{% url 'main:show_main' %}" class="brand">{{ nickname }}</a>
+      <nav>
+        <a class="header-text" href="{% url 'main:show_main' %}">Profile</a>
+        <a class="header-text" href="{% url 'main:show_experience' %}">Experience</a>
+        <a class="header-text" href="{% url 'main:show_projects' %}">Projects</a>
+      </nav>
+    </div>
+  </header>
 
-<main>
-</main>
+  <main>
+    <section class="projects-page-section">
+      <h1>Projects</h1>
+      <div class="experience-page-grid">
+        {% for project in project_list %}
+<!--        <article class="experience-page-card">-->
+<!--                        <span class="experience-page-category">-->
+<!--                            {{ experience.get_category_display }}-->
+<!--                        </span>-->
+<!--          <h2>{{ experience.title }}</h2>-->
+<!--          <p class="experience-page-description">-->
+<!--            {{ experience.description }}-->
+<!--          </p>-->
+<!--        </article>-->
+        <div>
+          <div class="projects-content-container">
+            <img class="projects-image fade-up-element-scroll" src="{{ project.image_path }}" alt="{{ project.title }} Web Preview">
+            <a class="fade-up-element-scroll projects-title" href="{{ project.web_link }}" target="_blank">{{ project.title }}</a>
+            <p>{{ project.description }}</p>
+          </div>
+        </div>
+        {% empty %}
+        <p class="empty-state">
+          Work in progress. Please wait for it!
+        </p>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2026 {{ nickname }}. Fakultas Ilmu Komputer, Universitas Indonesia.</p>
-  </div>
-</footer>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 {{ nickname }}. Fakultas Ilmu Komputer, Universitas Indonesia.</p>
+    </div>
+  </footer>
 </body>
 </html>
