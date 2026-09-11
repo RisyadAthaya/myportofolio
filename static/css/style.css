@@ -363,6 +363,7 @@ h2 {
     font-size: clamp(2rem, 6vw, 3rem);
     color: var(--ink);
     text-decoration: none;
+    text-align: center;
 }
 
 .projects-title:hover {
@@ -375,6 +376,7 @@ h2 {
     font-size: 0.85rem;
     border-top: 1px solid var(--line);
 }
+
 
 /* ================= */
 /*  Experience Page  */
