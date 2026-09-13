@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main.models import Experience, Projects, TechStack
+from main.models import Experience, Projects
 
 def show_main(request):
     context = {
@@ -11,7 +11,6 @@ def show_main(request):
             "An undergraduate Information Systems student at the University of Indonesia. "
             "Currently trying to learn software engineering, exploring opportunities, and actively pursuing knowledge."
         ),
-        "tech_stack_list": TechStack.objects.all(),
     }
     return render(request, "index.html", context)
 
