@@ -20,11 +20,11 @@ Kelas: PBP F
    ```
 2. **Create and activate the virtual environment** using the following command in the project root directory
    ```bash
-   $ python -m venv venv
+   $ python -m venv env
    ```
    then activate it
    ```bash
-   $ venv\Scripts\activate
+   $ env\Scripts\activate
    ```
 3. **Install the dependencies** on requirements.txt using the following command
    ```bash
@@ -71,6 +71,57 @@ item lebih banyak atau elemen dari masing-masing item semakin kompleks (seperti 
 Sederhana saja, pada iterasi selanjutnya, saya ingin membuat sebuah file JavaScript untuk memasukkan elemen dari
 item-item tersebut dengan lebih mudah.
 
+### Tugas 2
+1. Jelaskan alur yang terjadi ketika pengguna membuka halaman portofolio baru, mulai dari permintaan yang diterima 
+   proyek hingga data ditampilkan pada browser. Dalam jawabanmu, jelaskan peran urls.py proyek, urls.py aplikasi, view, 
+   model, dan template.
+
+Ketika user ingin membuka website ini, mereka mengirimkan permintaan. Permintaan tersebut diterima oleh urls.py proyek, 
+lalu mencocokkan path URL serta mengarahkannya ke urls.py aplikasi. Setelah itu, urls.py aplikasi kembali mencocokkan 
+URL untuk memanggil view yang sesuai dengan permintaannya. Ketika view dipanggil, seringkali mereka akan membuat sebuah 
+konteks terlebih dahulu untuk diberikan ke template nantinya. Pada pembuatan konteks inilah model akan mengambil data 
+yang diperlukan oleh views (dan sebelumnya telah ditentukan struktur/fields datanya). Template kemudian akan di-_render_ 
+yang menggabungkan HTML dengan data konteks dari view. Terakhir, view akan mengirimkan hasil render HTML tersebut ke 
+_browser_ user.
+
+2. Mengapa data untuk bagian portofolio baru sebaiknya disimpan pada model dan tidak ditulis langsung di dalam template?
+   Jelaskan dampaknya terhadap kemudahan pemeliharaan dan pengembangan aplikasi.
+
+Banyak sekali alasan untuk memisahkan data dari template. Pertama, dengan memisahkannya, website kita menjadi jauh
+lebih _maintainable_. Ketika kita ingin memasukkan atau mengubah data, kita hanya perlu melakukan modifikasi di 
+database, bukan di templatenya secara langsung. Hal ini memudahkan kita karena tidak perlu mengubah kode HTML di 
+template. Kedua, kode kita jadi bersifat dinamis. Misalnya tugas kita sekarang bukanlah membuat website portofolio, 
+tapi membuat home page Youtube. Dengan memisahkan data dari template, kita bisa menggunakan template yang sama untuk 
+menampilkan home page yang rekomendasi videonya berbeda-beda untuk setiap user. Terakhir, kita jadi bisa menggunakan 
+data di sebuah template untuk ditampilkan juga di template lainnya. Dengan begitu, akan lebih mudah untuk mengembangkan 
+website/aplikasi yang kita buat.
+
+3. Apa perbedaan fungsi makemigrations dan migrate pada Django? Berikan contoh perubahan model yang mengharuskanmu 
+   menjalankan kedua perintah tersebut.
+
+_Command_ "makemigrations" hanya berfungsi untuk membuat skrip migrasi berdasarkan perubahan yang ada di model. Jadi, 
+hanya membuat instruksinya saja. Sedangkan, _command_ "migrate" mengeksekusi skrip migrasi tersebut. _Command_ inilah 
+yang secara langsung mengubah database yang kita punya. Salah satu perubahan pada model yang saya terapkan di website 
+ini dan memerlukan kedua _command_ tersebut adalah perubahan field title menjadi position dan organization di model 
+Experience saya. Dengan begitu, code saya berubah dari
+
+```python
+class Experience(models.Model):
+    ...
+    title = models.CharField(max_length=255)
+    ...
+```
+
+menjadi
+
+```python
+class Experience(models.Model):
+    ...
+    position = models.CharField(max_length=255)
+    organization = models.CharField(max_length=255)
+    ...
+```
+
 ## 🤖 AI Disclosure
 Tools AI yang digunakan: Gemini.
 
@@ -84,3 +135,5 @@ Saya menyadari bahwa AI masih memiliki banyak kekurangan sehingga saya selalu me
 setiap kali mendapatkan jawaban dari chatbot. Selain itu, saya tidak menggunakan AI Coding Assistant
 untuk memudahkan saya mengingat style-style dan juga elemen-elemen yang saya buat secara manual di HTML
 dan juga CSS.
+
+Note: Untuk tugas 2, saya tidak menggunakan AI sama sekali untuk menuliskan code.
