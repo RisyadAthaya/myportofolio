@@ -354,7 +354,7 @@ h2 {
 }
 
 .projects-image {
-    width: 100%;
+    max-width: 70%;
     border-radius: var(--radius-rounded);
 }
 
@@ -498,4 +498,8 @@ h2 {
     .experience-item-desc {
         text-align: center;
     }
+
+    .projects-image {
+         max-width: 100%;
+     }
 }
