@@ -25,8 +25,8 @@
 
   <main>
     <section class="projects-page-section">
-      <h1>Projects</h1>
-      <div class="experience-page-grid">
+      <h1 class="fade-up-element">Projects</h1>
+      <div class="projects-container">
         {% for project in project_list %}
 <!--        <article class="experience-page-card">-->
 <!--                        <span class="experience-page-category">-->
@@ -37,12 +37,11 @@
 <!--            {{ experience.description }}-->
 <!--          </p>-->
 <!--        </article>-->
-        <div>
-          <div class="projects-content-container">
-            <img class="projects-image fade-up-element-scroll" src="{{ project.image_path }}" alt="{{ project.title }} Web Preview">
+        <div class="projects-content-container">
+          <img class="projects-image fade-up-element-scroll" src="{{ project.image_path }}" alt="{{ project.title }} Web Preview">
+          <div class="projects-page-text-container">
             <a class="fade-up-element-scroll projects-title" href="{{ project.web_link }}" target="_blank">{{ project.title }}</a>
-            <p>{{ project.description }}</p>
-          </div>
+            <p class="fade-up-element-scroll projects-desc">{{ project.description }}</p></div>
         </div>
         {% empty %}
         <p class="empty-state">
