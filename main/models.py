@@ -35,8 +35,8 @@ class Projects(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255, unique=True)
     description = models.TextField()
-    web_link = models.URLField(blank=True, null=True, unique=True)
-    image_path = models.FilePathField(unique=True)
+    web_link = models.URLField(blank=True)
+    image_link = models.URLField(blank=True)
 
     def __str__(self):
         return self.title

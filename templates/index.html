@@ -1,127 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Athaya - Portfolio</title>
-  <link rel="icon" href="/static/svg/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <!-- Untuk header dan footer menggunakan nickname for design purpose -->
-      <a href="{% url 'main:show_main' %}" class="brand header-text">{{ nickname }}</a>
-      <nav>
-        <a class="header-text" href="{% url 'main:show_main' %}">Profile</a>
-        <a class="header-text" href="{% url 'main:show_experience' %}">Experience</a>
-        <a class="header-text" href="{% url 'main:show_projects' %}">Projects</a>
-      </nav>
-    </div>
-  </header>
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero-loop">
+  <video autoplay muted loop playsinline class="hero-loop-video" src="/static/hero-video.mp4"></video>
+</section>
+<main>
 
-  <section class="hero-loop">
-    <video autoplay muted loop playsinline class="hero-loop-video" src="/static/hero-video.mp4"></video>
-  </section>
-  <main>
-    <section class="hero" id="profile">
-      <div class="container hero-grid">
-        <div class="hero-identity">
-          <p class="hero-kicker fade-up-element-scroll">Information Systems &middot; Universitas Indonesia</p>
-          <h1 class="fade-up-element-scroll">{{ name }}</h1>
-        </div>
-        <div class="hero-photo fade-up-element-scroll">
-          <div class="photo-block"></div>
-          <img class="avatar" src="/static/img/athaya.jpeg" alt="Photo of {{ name }}">
-        </div>
-        <div class="hero-details">
-          <p class="bio fade-up-element-scroll">{{ bio }}</p>
-          <dl class="meta-list">
-            <div class="meta-row">
-              <dt class="fade-up-element-scroll">NPM</dt>
-              <dd class="fade-up-element-scroll">{{ npm }}</dd>
-            </div>
-            <div class="meta-row">
-              <dt class="fade-up-element-scroll">Program</dt>
-              <dd class="fade-up-element-scroll">{{ study_program }}</dd>
-            </div>
-          </dl>
-          <div class="social-links fade-up-element-scroll">
-            <a href="https://github.com/RisyadAthaya" class="social-link" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/risyadathaya/" class="social-link" target="_blank">LinkedIn</a>
-            <a href="mailto:risyad.athaya@ui.ac.id" class="social-link" target="_blank">Email</a>
+  <section class="hero" id="profile">
+    <div class="container hero-grid">
+      <div class="hero-identity">
+        <p class="hero-kicker fade-up-element-scroll">Information Systems &middot; Universitas Indonesia</p>
+        <h1 class="fade-up-element-scroll">{{ name }}</h1>
+      </div>
+      <div class="hero-photo fade-up-element-scroll">
+        <div class="photo-block"></div>
+        <img class="avatar" src="/static/img/athaya.jpeg" alt="Photo of {{ name }}">
+      </div>
+      <div class="hero-details">
+        <p class="bio fade-up-element-scroll">{{ bio }}</p>
+        <dl class="meta-list">
+          <div class="meta-row">
+            <dt class="fade-up-element-scroll">NPM</dt>
+            <dd class="fade-up-element-scroll">{{ npm }}</dd>
           </div>
+          <div class="meta-row">
+            <dt class="fade-up-element-scroll">Program</dt>
+            <dd class="fade-up-element-scroll">{{ study_program }}</dd>
+          </div>
+        </dl>
+        <div class="social-links fade-up-element-scroll">
+          <a href="https://github.com/RisyadAthaya" class="social-link" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/risyadathaya/" class="social-link" target="_blank">LinkedIn</a>
+          <a href="mailto:risyad.athaya@ui.ac.id" class="social-link" target="_blank">Email</a>
         </div>
-      </div>
-    </section>
-  </main>
-  <section id="experience">
-    <h2 class="fade-up-element-scroll">Experience</h2>
-    <ul class="experience-list">
-      <li class="experience-item fade-up-element-scroll">
-        <a href="https://www.ristek.cs.ui.ac.id/" class="experience-item-title" target="_blank">RISTEK</a>
-        <div class="experience-item-desc">
-          <p>People Operations of Data Science & AI</p>
-          <p>2026 - Present</p>
-        </div>
-      </li>
-      <li class="experience-item fade-up-element-scroll">
-        <a href="https://www.instagram.com/compfest/" class="experience-item-title" target="_blank">COMPFEST</a>
-        <div class="experience-item-desc">
-          <p>Expert Staff of Data Science Academy</p>
-          <p>2026 - Present</p>
-        </div>
-      </li>
-      <li class="experience-item fade-up-element-scroll">
-        <a href="https://www.instagram.com/rohissmalabsjkt/" class="experience-item-title" target="_blank">ROHIS</a>
-        <div class="experience-item-desc">
-          <p>Staff of Ubudiyah</p>
-          <p>2023 - 2024</p>
-        </div>
-      </li>
-    </ul>
-  </section>
-  <section id="tech-stack">
-    <h2 class="fade-up-element-scroll">Tech Stack</h2>
-    <div class="tech-stack-content-container">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/html.png" alt="HTML Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/css.png" alt="CSS Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/javascript.png" alt="JavaScript Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/typescript.png" alt="TypeScript Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/python.png" alt="Python Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/django.png" alt="Django Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/java.png" alt="Java Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/react.png" alt="React Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/nextjs.png" alt="Next.Js Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/tailwindcss.png" alt="Tailwind CSS Logo">
-      <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/supabase.png" alt="Supabase Logo">
-    </div>
-  </section>
-  <section id="projects">
-    <h2 class="fade-up-element-scroll">Projects</h2>
-    <div class="projects-container">
-      <div class="projects-content-container">
-        <img class="projects-image fade-up-element-scroll" src="/static/img/project-laporaman.png" alt="Laporaman Web Preview">
-        <a class="fade-up-element-scroll projects-title" href="https://risyadathaya.github.io/laporaman/" target="_blank">Lapor Aman</a>
-      </div>
-      <div class="projects-content-container">
-        <img class="projects-image fade-up-element-scroll" src="/static/img/project-portfolio.png" alt="Portfolio Web Preview">
-        <a class="fade-up-element-scroll projects-title" href="https://athaya-portfolio.vercel.app/" target="_blank">Portfolio</a>
-      </div>
-      <div class="projects-content-container">
-        <img class="projects-image fade-up-element-scroll" src="/static/img/project-pomodoro-timer.png" alt="Pomodoro Timer Web Preview">
-        <a class="fade-up-element-scroll projects-title" href="https://risyadathaya.github.io/pomodoro-timer/" target="_blank">Pomodoro Timer</a>
       </div>
     </div>
   </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 {{ nickname }}. Fakultas Ilmu Komputer, Universitas Indonesia.</p>
+</main>
+<section id="experience">
+  <h2 class="fade-up-element-scroll">Experience</h2>
+  <ul class="experience-list">
+    <li class="experience-item fade-up-element-scroll">
+      <a href="https://www.ristek.cs.ui.ac.id/" class="experience-item-title" target="_blank">RISTEK</a>
+      <div class="experience-item-desc">
+        <p>People Operations of Data Science & AI</p>
+        <p>2026 - Present</p>
+      </div>
+    </li>
+    <li class="experience-item fade-up-element-scroll">
+      <a href="https://www.instagram.com/compfest/" class="experience-item-title" target="_blank">COMPFEST</a>
+      <div class="experience-item-desc">
+        <p>Expert Staff of Data Science Academy</p>
+        <p>2026 - Present</p>
+      </div>
+    </li>
+    <li class="experience-item fade-up-element-scroll">
+      <a href="https://www.instagram.com/rohissmalabsjkt/" class="experience-item-title" target="_blank">ROHIS</a>
+      <div class="experience-item-desc">
+        <p>Staff of Ubudiyah</p>
+        <p>2023 - 2024</p>
+      </div>
+    </li>
+  </ul>
+</section>
+<section id="tech-stack">
+  <h2 class="fade-up-element-scroll">Tech Stack</h2>
+  <div class="tech-stack-content-container">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/html.png" alt="HTML Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/css.png" alt="CSS Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/javascript.png" alt="JavaScript Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/typescript.png" alt="TypeScript Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/python.png" alt="Python Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/django.png" alt="Django Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/java.png" alt="Java Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/react.png" alt="React Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/nextjs.png" alt="Next.Js Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/tailwindcss.png" alt="Tailwind CSS Logo">
+    <img class="tech-stack-logo fade-up-element-scroll" src="/static/img/supabase.png" alt="Supabase Logo">
+  </div>
+</section>
+<section id="projects">
+  <h2 class="fade-up-element-scroll">Projects</h2>
+  <div class="projects-container">
+    <div class="projects-content-container">
+      <img class="projects-image fade-up-element-scroll" src="/static/img/project-laporaman.png" alt="Laporaman Web Preview">
+      <a class="fade-up-element-scroll projects-title" href="https://risyadathaya.github.io/laporaman/" target="_blank">Lapor Aman</a>
     </div>
-  </footer>
-</body>
-</html>
+    <div class="projects-content-container">
+      <img class="projects-image fade-up-element-scroll" src="/static/img/project-portfolio.png" alt="Portfolio Web Preview">
+      <a class="fade-up-element-scroll projects-title" href="https://athaya-portfolio.vercel.app/" target="_blank">Portfolio</a>
+    </div>
+    <div class="projects-content-container">
+      <img class="projects-image fade-up-element-scroll" src="/static/img/project-pomodoro-timer.png" alt="Pomodoro Timer Web Preview">
+      <a class="fade-up-element-scroll projects-title" href="https://risyadathaya.github.io/pomodoro-timer/" target="_blank">Pomodoro Timer</a>
+    </div>
+  </div>
+</section>
+{% endblock content %}
