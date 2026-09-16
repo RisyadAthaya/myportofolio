@@ -1,61 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Experience - {{ nickname }}</title>
-  <link rel="icon" href="/static/svg/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <!-- Untuk header dan footer menggunakan nickname for design purpose -->
-      <a href="{% url 'main:show_main' %}" class="brand">{{ nickname }}</a>
-      <nav>
-        <a class="header-text" href="{% url 'main:show_main' %}">Profile</a>
-        <a class="header-text" href="{% url 'main:show_experience' %}">Experience</a>
-        <a class="header-text" href="{% url 'main:show_projects' %}">Projects</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="projects-page-section">
+{% extends 'base.html' %}
+{% block title %}Projects - {{ nickname }}{% endblock %}
+{% block content %}
+<main>
+  <section class="projects-page-section">
+    <div class="projects-page-title-container">
       <h1 class="fade-up-element">Projects</h1>
-      <div class="projects-container">
-        {% for project in project_list %}
-<!--        <article class="experience-page-card">-->
-<!--                        <span class="experience-page-category">-->
-<!--                            {{ experience.get_category_display }}-->
-<!--                        </span>-->
-<!--          <h2>{{ experience.title }}</h2>-->
-<!--          <p class="experience-page-description">-->
-<!--            {{ experience.description }}-->
-<!--          </p>-->
-<!--        </article>-->
-        <div class="projects-content-container">
-          <img class="projects-image fade-up-element-scroll" src="{{ project.image_path }}" alt="{{ project.title }} Web Preview">
-          <div class="projects-page-text-container">
-            <a class="fade-up-element-scroll projects-title" href="{{ project.web_link }}" target="_blank">{{ project.title }}</a>
-            <p class="fade-up-element-scroll projects-desc">{{ project.description }}</p></div>
-        </div>
-        {% empty %}
-        <p class="empty-state">
-          Work in progress. Please wait for it!
-        </p>
-        {% endfor %}
+      <div class="projects-page-title-button-container">
+        <form method="get"
+              action="{% url 'main:show_projects' %}"
+              class="project-search fade-up-element">
+          <input type="search"
+                 name="title"
+                 value="{{ title_query }}"
+                 placeholder="Cari berdasarkan nama proyek"
+                 class="project-search__input fade-up-element"
+                 aria-label="Cari berdasarkan nama proyek">
+          <button type="submit" class="button">Cari</button>
+        </form>
+        <a href="{% url 'main:create_project' %}"
+           class="button project-add-button fade-up-element">
+          <span aria-hidden="true">+</span>
+          Tambah Proyek
+        </a>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 {{ nickname }}. Fakultas Ilmu Komputer, Universitas Indonesia.</p>
     </div>
-  </footer>
-</body>
-</html>
+    <div class="projects-container">
+      {% for project in project_list %}
+      <div class="projects-page-content-container">
+        {% if project.image_link %}
+        <img src="{{ project.image_link }}"
+             alt="{{ project.title }} Web Preview"
+             class="projects-image fade-up-element-scroll">
+        {% endif %}
+        <div class="projects-page-text-container">
+          {% if project.web_link %}
+          <a class="fade-up-element-scroll projects-title" href="{{ project.web_link }}" target="_blank">{{ project.title }}</a>
+          {% else %}
+          <a class="fade-up-element-scroll projects-title" href="https://github.com/RisyadAthaya" target="_blank">{{ project.title }}</a>
+          {% endif %}
+          <p class="fade-up-element-scroll projects-desc">{{ project.description }}</p>
+        </div>
+        {% include "components/project_delete_modal.html" with project=project %}
+      </div>
+      {% empty %}
+      {% if title_query %}
+      <p class="empty-state">There's currently no project with that name!</p>
+      {% else %}
+      <p class="empty-state">Work in progress. Please wait for it!</p>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+</main>
+{% endblock %}
