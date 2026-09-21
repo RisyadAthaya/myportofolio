@@ -395,6 +395,46 @@ h2 {
 }
 
 
+/* ========= */
+/*  Subpage  */
+/* ========= */
+
+.page-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-title-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.search {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.search__input {
+    width: 100%;
+    min-width: 0;
+    padding: 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-square);
+    background: var(--ink);
+    color: var(--paper);
+    font: inherit;
+}
+
+.search__input:focus {
+    outline: 2px solid var(--accent);
+    border-color: var(--accent);
+}
+
+
 /* ================= */
 /*  Experience Page  */
 /* ================= */
@@ -442,7 +482,7 @@ h2 {
 }
 
 .experience-page-status {
-    margin-top: 1rem;
+    margin-block: 1rem;
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -457,41 +497,6 @@ h2 {
     align-items: center;
     padding-top: 8rem;
     padding-bottom: 5rem;
-}
-
-.projects-page-title-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.projects-page-title-button-container {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-}
-
-.project-search {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-}
-
-.project-search__input {
-    width: 100%;
-    min-width: 0;
-    padding: 0.7rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-square);
-    background: var(--ink);
-    color: var(--paper);
-    font: inherit;
-}
-
-.project-search__input:focus {
-    outline: 2px solid var(--accent);
-    border-color: var(--accent);
 }
 
 .projects-page-content-container {
@@ -530,9 +535,9 @@ h2 {
 
 
 /* ========================= */
-/*   Projects Delete Modal   */
+/*   Delete Modal   */
 /* ========================= */
-.project-delete-modal {
+.delete-modal {
     display: none;
     position: fixed;
     inset: 0;
@@ -550,11 +555,11 @@ h2 {
     color: var(--ink);
 }
 
-.project-delete-modal:popover-open {
+.delete-modal:popover-open {
     display: flex;
 }
 
-.project-delete-modal__backdrop {
+.delete-modal__backdrop {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -565,7 +570,7 @@ h2 {
     cursor: default;
 }
 
-.project-delete-modal__content {
+.delete-modal__content {
     position: relative;
     z-index: 1;
     width: min(100%, 480px);
@@ -576,7 +581,7 @@ h2 {
     box-shadow: 0 1rem 3rem rgba(28, 25, 23, 0.22);
 }
 
-.project-delete-modal__content h2 {
+.delete-modal__content h2 {
     margin: 0 0 0.75rem;
     font-family:
             "Space Grotesk",
@@ -585,7 +590,7 @@ h2 {
     font-size: 1.5rem;
 }
 
-.project-delete-modal__close {
+.delete-modal__close {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -598,7 +603,7 @@ h2 {
     cursor: pointer;
 }
 
-.project-delete-modal__actions {
+.delete-modal__actions {
     display: flex;
     justify-content: flex-end;
     gap: 0.75rem;
@@ -611,9 +616,9 @@ h2 {
 }
 
 /* ====================== */
-/*   Projects Form Page   */
+/*   Form Page   */
 /* ====================== */
-.project-form {
+.form {
     width: 100%;
     max-width: 100%;
     margin-top: 1.5rem;
@@ -630,7 +635,8 @@ h2 {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     width: 100%;
     box-sizing: border-box;
     padding: 0.7rem;
@@ -652,6 +658,15 @@ h2 {
     color: #b42318;
     font-size: 0.85rem;
     margin-top: 0.35rem;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    gap: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -709,7 +724,7 @@ h2 {
         max-width: 100%;
     }
 
-    .projects-page-title-button-container {
+    .page-title-button-container {
         flex-direction: column;
     }
 

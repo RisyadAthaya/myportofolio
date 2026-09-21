@@ -1,6 +1,51 @@
-from django.forms import ModelForm, TextInput, Textarea, URLInput
+from django.forms import ModelForm, TextInput, Textarea, URLInput, Select, DateTimeInput
+from main.models import Experience, Projects
 
-from main.models import Projects
+class ExperienceForm(ModelForm):
+    class Meta:
+        model = Experience
+        fields = [
+            "position",
+            "organization",
+            "description",
+            "category",
+            "started_at",
+            "ended_at",
+        ]
+
+        labels = {
+            "position": "Posisi Pengalaman",
+            "organization": "Organisasi Pengalaman",
+            "description": "Deskripsi Pengalaman",
+            "category": "Kategori Pengalaman",
+            "started_at": "Waktu Dimulainya Pengalaman",
+            "ended_at": "Waktu Berakhirnya Pengalaman",
+        }
+
+        widgets = {
+            "position": TextInput(
+                attrs={
+                    "placeholder": "Asisten Dosen"
+            }),
+            "organization": TextInput(
+                attrs={
+                    "placeholder": "Fasilkom UI"
+            }),
+            "description": Textarea(
+                attrs={
+                    "placeholder": "Ceritakan Pengalamanmu",
+                    "rows": 3,
+            }),
+            "category": Select(),
+            "started_at": DateTimeInput(
+                attrs={
+                    "type": "datetime-local"
+            }),
+            "ended_at": DateTimeInput(
+                attrs={
+                    "type": "datetime-local"
+            }),
+        }
 
 class ProjectForm(ModelForm):
     class Meta:
