@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block meta %}
-<title>Add Project - {{ nickname }}</title>
+<title>Add Experience - {{ nickname }}</title>
 {% endblock meta %}
 {% block content %}
 <main>
-  <section class="projects-page-section">
+  <section class="experience-page-section">
     <div class="container">
-      <h1>Add New Project</h1>
+      <h1>Add New Experience</h1>
       <form method="post"
-            action="{% url 'main:create_project' %}"
+            action="{% url 'main:create_experience' %}"
             class="form">
         {% csrf_token %}
         {% for field in form %}
@@ -21,8 +21,8 @@
         </div>
         {% endfor %}
         <div class="form-buttons">
-          <button type="submit" class="button">Tambah Project</button>
-          <a href="{% url 'main:show_projects' %}" class="button button-danger">Batal</a>
+          <button type="submit" class="button">Tambah Pengalaman</button>
+          <a href="{% url 'main:show_experience' %}" class="button button-danger">Batal</a>
         </div>
       </form>
     </div>
