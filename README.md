@@ -122,6 +122,35 @@ class Experience(models.Model):
     ...
 ```
 
+### Tugas 3
+1. Jelaskan mengapa kita menggunakan ModelForm pada Django alih-alih membuat form HTML secara manual. Selain itu,
+   jelaskan pula mengapa kita diwajibkan menambahkan `{% csrf_token %}` pada form tersebut!
+
+Penggunaan ModelForm pada Django lebih efisien dan aman dibandingkan membuat form HTML secara manual. ModelForm secara 
+otomatis menghasilkan _fields_ beserta aturan validasinya dari definisi model yang sudah ada, sehingga bisa mengurangi 
+jumlah kode yang tidak diperlukan, menjaga konsistensi tipe data, dam menyederhanakan kode menggunakan fungsi bawaan. 
+Lalu, tag {% csrf_token %} ada sebagai mekanisme pertahanan terhadap serangan Cross-Site Request Forgery. Tag ini 
+menghasilkan token rahasia yang unik pada setiap sesi pengguna untuk memverifikasi bahwa permintaan yang mengubah 
+data benar-benar valid.
+
+2. Pada Tutorial 03, kita membahas format data JSON dan XML. Mengapa JSON lebih disukai dalam pengembangan aplikasi
+   web modern dibandingkan XML?
+
+JSON lebih disukai dibandingkan XML karena ukurannya yang lebih ringan, parser yang lebih cepat, dan integrasi yang
+sangat baik dengan JavaScript. Dengan begitu, JSON lebih memudahkan kita, para developer, ketika mengembangkan sebuah
+website atau aplikasi.
+
+3. Jelaskan alur yang terjadi saat kamu menggunakan fungsi view untuk mengembalikan data portofoliomu dalam bentuk
+   JSON. Mengapa kita perlu melakukan proses serialization pada model Django sebelum datanya dikembalikan?
+
+Saat fungsi view dipanggil, alur kerja dimulai dengan masuknya HTTP Request ke URL aplikasi. Kemudian, itu ditangani 
+oleh fungsi view untuk mengambil data dari basis data. Setelah data diperoleh, proses serialization dilakukan untuk 
+mengonversi objek tersebut menjadi bentuk struktur data lain seperti dictionary Python, sebelum akhirnya dibungkus 
+dengan JsonResponse untuk dikirimkan kembali sebagai respons HTTP berformat application/json. Proses serialization 
+ini sangat penting karena objek QuerySet Django merupakan objek Python kompleks, sedangkan protokol jaringan dan format
+JSON hanya mampu memproses tipe data standar seperti teks, angka, dan array, sehingga objek tersebut harus 
+di-_translate_ dulu agar bisa ditransfer dan dipahami oleh klien.
+
 ## 🤖 AI Disclosure
 Tools AI yang digunakan: Gemini.
 
