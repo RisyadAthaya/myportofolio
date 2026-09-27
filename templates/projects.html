@@ -17,11 +17,13 @@
                  aria-label="Cari berdasarkan nama proyek">
           <button type="submit" class="button">Cari</button>
         </form>
+        {% if user.is_superuser %}
         <a href="{% url 'main:create_project' %}"
            class="button fade-up-element">
           <span aria-hidden="true">+</span>
           Tambah Proyek
         </a>
+        {% endif %}
       </div>
     </div>
     <div class="projects-container">
@@ -40,7 +42,10 @@
           {% endif %}
           <p class="fade-up-element-scroll projects-desc">{{ project.description }}</p>
         </div>
+        {% include "components/project_star.html" with project=project %}
+        {% if user.is_superuser %}
         {% include "components/project_delete_modal.html" with project=project %}
+        {% endif %}
       </div>
       {% empty %}
       {% if title_query %}

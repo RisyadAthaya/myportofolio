@@ -1,5 +1,7 @@
 from datetime import datetime
 import uuid
+
+from django.contrib.auth.models import User
 from django.db import models
 
 class Experience(models.Model):
@@ -37,6 +39,9 @@ class Projects(models.Model):
     description = models.TextField()
     web_link = models.URLField(blank=True)
     image_link = models.URLField(blank=True)
+    starred_by = models.ManyToManyField(
+        User, related_name="starred_projects", blank=True
+    )
 
     def __str__(self):
         return self.title
