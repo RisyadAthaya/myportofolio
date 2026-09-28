@@ -17,11 +17,13 @@
                  aria-label="Cari berdasarkan nama pengalaman">
           <button type="submit" class="button">Cari</button>
         </form>
+        {% if user.is_superuser %}
         <a href="{% url 'main:create_experience' %}"
            class="button fade-up-element">
           <span aria-hidden="true">+</span>
           Tambah Pengalaman
         </a>
+        {% endif %}
       </div>
     </div>
     <div class="experience-page-container">
@@ -40,7 +42,9 @@
           {% else %}
           <p class="experience-page-status">Selesai</p>
           {% endif %}
+          {% if user.is_superuser %}
           {% include "components/experience_delete_modal.html" with experience=experience %}
+          {% endif %}
         </div>
       </article>
       {% empty %}

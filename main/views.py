@@ -44,7 +44,10 @@ def show_experience(request):
     }
     return render(request, "experience.html", context)
 
+@login_required(login_url="/login/")
 def create_experience(request):
+    if not request.user.is_superuser:
+        raise PermissionDenied
     form = ExperienceForm(request.POST or None)
 
     if request.method == "POST" and form.is_valid():
@@ -69,7 +72,10 @@ def get_experience_json(request):
     experience_json = serializers.serialize("json", experience)
     return HttpResponse(experience_json, content_type="application/json")
 
+@login_required(login_url="/login/")
 def delete_experience(request, experience_id):
+    if not request.user.is_superuser:
+        raise PermissionDenied
     experience = get_object_or_404(Projects, pk=experience_id)
 
     if request.method == "POST":
