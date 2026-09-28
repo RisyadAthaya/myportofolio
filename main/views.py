@@ -62,6 +62,25 @@ def create_experience(request):
 
     return render(request, "experience_form.html", context)
 
+@login_required(login_url="/login/")
+def edit_experience(request, experience_id):
+    if not request.user.groups.filter(name='Editor').exists() and not request.user.is_superuser:
+        raise PermissionDenied
+
+    experience = get_object_or_404(Experience, pk=experience_id)
+    form = ExperienceForm(request.POST or None, instance=experience)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Pengalaman berhasil diedit!")
+        return redirect("main:show_experience")
+
+    context = {
+        "nickname": "Athaya",
+        "form": form,
+        "experience": experience,
+    }
+    return render(request, "experience_edit.html", context)
+
 def get_experience_json(request):
     title_query = request.GET.get("title", "").strip()
     experience = Experience.objects.all()
@@ -119,6 +138,25 @@ def create_project(request):
     }
 
     return render(request, "projects_form.html", context)
+
+@login_required(login_url="/login/")
+def edit_project(request, project_id):
+    if not request.user.groups.filter(name='Editor').exists() and not request.user.is_superuser:
+        raise PermissionDenied
+
+    project = get_object_or_404(Projects, pk=project_id)
+    form = ProjectForm(request.POST or None, instance=project)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Proyek berhasil diedit!")
+        return redirect("main:show_projects")
+
+    context = {
+        "nickname": "Athaya",
+        "form": form,
+        "project": project,
+    }
+    return render(request, "projects_edit.html", context)
 
 def get_projects_json(request):
     title_query = request.GET.get("title", "").strip()
