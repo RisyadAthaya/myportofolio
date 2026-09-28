@@ -677,7 +677,7 @@ h2 {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: var(--ink);
+    background: var(--paper);
 }
 
 .button-star.is-starred {
@@ -686,7 +686,7 @@ h2 {
 
 .star-count {
     padding: 0.05rem 0.4rem;
-    border-radius: 999px;
+    border-radius: var(--radius-rounded);
     background: rgba(255, 255, 255, 0.25);
     font-size: 0.8rem;
 }
