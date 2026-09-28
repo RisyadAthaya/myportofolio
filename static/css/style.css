@@ -703,6 +703,19 @@ h2 {
     padding-bottom: 5rem;
 }
 
+.redirect-text {
+    margin-top: 1rem;
+}
+
+.redirect-text a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.redirect-text a:hover {
+    color: var(--text-muted);
+}
+
 @media (max-width: 768px) {
     .site-header nav {
         gap: 1rem;
