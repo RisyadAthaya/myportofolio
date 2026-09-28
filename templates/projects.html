@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load auth_editor %}
 {% block title %}Projects - {{ nickname }}{% endblock %}
 {% block content %}
 <main>
@@ -42,10 +43,21 @@
           {% endif %}
           <p class="fade-up-element-scroll projects-desc">{{ project.description }}</p>
         </div>
-        {% include "components/project_star.html" with project=project %}
-        {% if user.is_superuser %}
-        {% include "components/project_delete_modal.html" with project=project %}
-        {% endif %}
+        <div class="edit-buttons-container">
+          {% include "components/project_star.html" with project=project %}
+          {% if user.is_superuser %}
+          {% include "components/project_delete_modal.html" with project=project %}
+          <a href="{% url 'main:edit_project' project.id %}"
+             class="button fade-up-element-scroll">
+            Edit
+          </a>
+          {% elif request.user|has_group_editor %}
+          <a href="{% url 'main:edit_project' project.id %}"
+             class="button fade-up-element-scroll">
+            Edit
+          </a>
+          {% endif %}
+        </div>
       </div>
       {% empty %}
       {% if title_query %}
