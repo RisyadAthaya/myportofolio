@@ -696,6 +696,20 @@ h2 {
     font-size: 0.8rem;
 }
 
+.edit-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.projects-page-section .edit-buttons-container {
+    align-items: center;
+}
+
+.experience-page-section .edit-buttons-container {
+    align-items: start;
+}
+
 
 /* ====================== */
 /*       Auth Page        */
@@ -782,5 +796,13 @@ h2 {
 
     .projects-page-text-container {
          gap: 1rem;
+    }
+
+    .projects-page-section .edit-buttons-container {
+        flex-direction: column;
+    }
+
+    .experience-page-section .edit-buttons-container {
+        flex-direction: column;
     }
 }
