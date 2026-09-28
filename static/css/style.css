@@ -616,7 +616,7 @@ h2 {
 }
 
 /* ====================== */
-/*   Form Page   */
+/*       Form Page        */
 /* ====================== */
 .form {
     width: 100%;
@@ -689,6 +689,18 @@ h2 {
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.25);
     font-size: 0.8rem;
+}
+
+
+/* ====================== */
+/*       Auth Page        */
+/* ====================== */
+.auth-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
 }
 
 @media (max-width: 768px) {
