@@ -96,7 +96,7 @@ def get_experience_json(request):
     experience = Experience.objects.prefetch_related('starred_by').all()
 
     if title_query:
-        experience = experience.filter(title__icontains=title_query)
+        experience = experience.filter(position__icontains=title_query)
 
     data = []
     for exp in experience:
@@ -116,7 +116,6 @@ def get_experience_json(request):
                 "star_count": starred_users.count(),
                 "is_starred": is_starred,
                 "starred_by_names": starred_by_names,
-                # category = models.CharField(max_length=20, choices=EXPERIENCE_CHOICES, default='full-time')
             }
         })
 
