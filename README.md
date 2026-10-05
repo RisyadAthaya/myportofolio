@@ -151,6 +151,37 @@ ini sangat penting karena objek QuerySet Django merupakan objek Python kompleks,
 JSON hanya mampu memproses tipe data standar seperti teks, angka, dan array, sehingga objek tersebut harus 
 di-_translate_ dulu agar bisa ditransfer dan dipahami oleh klien.
 
+## Tugas 5
+1. Jelaskan apa itu debouncing dan mengapa teknik ini penting diterapkan pada fitur pencarian yang menggunakan AJAX!
+
+Debouncing adalah teknik untuk menambahkan delay pada sebuah eksekusi fungsi. Ketika sebuah fungsi dipanggil, JavaScript
+akan menunggu beberapa waktu (sesuai yang diset oleh kita) sampai akhirnya melanjutkan pekerjaannya. Pada fitur
+pencarian, ini berarti ketika user sedang mengetik, JavaScript akan menunggu user untuk berhenti mengetik dan menunggu
+selama beberapa waktu tertentu sebelum akhirnya melakukan fetch untuk menampilkan data yang diinginkan. Ini penting
+karena kalau kita melakukan fetch secara terus menerus selagi user mengetik banyak huruf, kita akan mengirim banyak
+sekali request di saat yang bersamaan sehingga membuat server atau website menjadi overload.
+
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak
+   menggunakan await?
+
+Await adalah keyword untuk menunggu hasil dari fetch(). Kenapa await diperlukan? Hal ini karena JavaScript dapat
+mengeksekusi sebuah fungsi secara asynchronous, termasuk fungsi fetch. Ketika sebuah fungsi dimaksud untuk dieksekusi
+secara asynchronous, mereka akan mengembalikan object Promise ketika dipanggil tanpa menggunakan await (dan langsung
+melanjutkan pembacaan line kode berikutnya). Padahal, yang kita inginkan adalah data, bukan sebuah Promise. Oleh karena
+itu, kita menggunakan await untuk menunggu fungsi fetch() selesai dieksekusi dan mengembalikan data yang sebenarnya
+kita inginkan, bukan sebuah object Promise.
+
+3. Jelaskan apa itu serangan XSS (Cross-Site Scripting) dan mengapa data yang ditampilkan melalui AJAX/JavaScript lebih 
+   rentan terhadap serangan ini daripada data yang ditampilkan langsung melalui template Django!
+
+Serangn Cross-Site Scripting adalah serangan dengan menyisipkan script berbahaya berupa kode ke dalam halaman web.
+Ketika pengguna lain membuka halaman tersebut, script berbahaya itu akan dieksekusi oleh browser sehingga memungkinkan
+penyerang untuk mendapatkan info sensitif, seperti cookie, session token, dan lainnya. Data yang ditampilkam melalui
+template Django lebih aman karena sudah secara otomatis dilakukan langkah preventif oleh Django: pengubahan karakter
+berbahaya, seperti "<", "&", dan lainnya diubah menjadi format HTML ("<" menjadi "&lt"). Selain itu, penggunaan
+variabel akan dikonversi menjadi teks yang aman sebelum dikirim ke browser. Jika data ditampilkan melalui AJAX/JS,
+hal itu menjadi tanggung jawab developer sepenuhnya dan tidak secara otomatis diamankan oleh JavaScript.
+
 ## 🤖 AI Disclosure
 Tools AI yang digunakan: Gemini.
 
