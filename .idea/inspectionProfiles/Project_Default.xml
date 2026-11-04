@@ -12,6 +12,7 @@
           <option value="requests" />
           <option value="urllib3" />
           <option value="python-dotenv" />
+          <option value="djangorestframework" />
         </list>
       </option>
     </inspection_tool>

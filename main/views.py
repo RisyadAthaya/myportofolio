@@ -9,8 +9,11 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
+from rest_framework.decorators import permission_classes
+
 from main.forms import ProjectForm, ExperienceForm
 from main.models import Experience, Projects
+from main.permissions import IsPortfolioOwnerOrEditorOrReadOnly
 
 def show_main(request):
     last_login = request.COOKIES.get('last_login', 'Belum ada sesi login / Cookie tidak ditemukan')
@@ -134,6 +137,7 @@ def delete_experience(request, experience_id):
 
     return redirect("main:show_experience")
 
+@permission_classes([IsPortfolioOwnerOrEditorOrReadOnly])
 def show_projects(request):
     title_query = request.GET.get("title", "").strip()
     context = {
