@@ -16,10 +16,10 @@ from main.serializers import ExperienceSerializer, ProjectSerializer
 @permission_classes([IsPortfolioOwnerOrReadOnly])
 def experience_list(request):
     if request.method in ("GET", "HEAD"):
-        experience = Experience.objects.prefetch_related("starred_by").order_by("title", "id")
-        title = request.query_params.get("title", "").strip()
-        if title:
-            experience = experience.filter(title__icontains=title)
+        experience = Experience.objects.prefetch_related("starred_by").order_by("position", "id")
+        position = request.query_params.get("position", "").strip()
+        if position:
+            experience = experience.filter(position__icontains=position)
         serializer = ExperienceSerializer(
             experience, many=True, context={"request": request},
         )
