@@ -17,6 +17,24 @@ class ExperienceSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ["id"]
 
+    def validate_position(self, value):
+        value = strip_tags(value).strip()
+        if not value:
+            raise serializers.ValidationError("Position cannot be empty.")
+        return value
+
+    def validate_organization(self, value):
+        value = strip_tags(value).strip()
+        if not value:
+            raise serializers.ValidationError("Organization cannot be empty.")
+        return value
+
+    def validate_description(self, value):
+        return strip_tags(value)
+
+    def validate_category(self, value):
+        return strip_tags(value)
+
     def get_star_count(self, obj):
         return obj.starred_by.count()
 
